@@ -21,10 +21,12 @@
 // FrameProvider type - Exactly 1 of these should be true:
 //TODO: Set this to true if using a BlackMagic DeckLink capture card.
 #define USE_DECKLINK   TRUE
+//TODO: Set this to true if using an Elgato capture card.
+#define USE_ELGATO     FALSE
 //TODO: Set this to true if using OpenCV to get frames from a camera or capture card.
 #define USE_OPENCV     FALSE
 
-static_assert((USE_DECKLINK + USE_OPENCV == 1),
+static_assert((USE_ELGATO + USE_DECKLINK + USE_OPENCV == 1),
     "Exactly 1 FrameProvider must be set");
 
 // Audio
@@ -48,7 +50,7 @@ static_assert((USE_DECKLINK + USE_OPENCV == 1),
 #define AUDIO_SAMPLE_RATE   48000
 // Output audio resolution - Average bytes per second.
 // This must be: 12000, 16000, 20000, or 24000.
-#define AUDIO_BPS           20000
+#define AUDIO_BPS           24000
 
 #define AUDIO_BUFSIZE (AUDIO_CHANNEL_SIZE * AUDIO_CHANNELS)
 
